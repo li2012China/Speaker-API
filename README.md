@@ -1,6 +1,6 @@
 **Speaker API** is an offline, privacy-first text-to-speech (TTS) middleware for Minecraft. It converts in-game text — chat, system messages, toasts, and any text submitted by other mods — into natural, human-like speech played through your speakers. Everything runs locally on your machine: no network requests, no cloud, no accounts.
 
-> 我突然发现有很多人抵制AI模组，我非常能理解。但是在抱歉之余，我想说的是：我们真的想为mc社区做些什么。我们使用AI，但我们不是被AI腐蚀，我们仍旧有着自己的想法，只是没有能力自己做出来。我完全可以大大方方地告诉您，我们使用了WorkBuddy。感谢您伟大的宽容。
+> 我突然发现有很多人抵制AI模组，我非常能理解且感到抱歉。但是在抱歉之余，我想说的是：我们真的想为mc社区做些什么。我们使用AI，但我们不是被AI腐蚀，我们仍旧有着自己的想法和创意，只是没有能力自己做出来。我完全可以大大方方地告诉您，我们使用了WorkBuddy。感谢您伟大的宽容。
 
 <details>
 <summary>中文</summary>
