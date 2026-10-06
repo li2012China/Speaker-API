@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Apache-2.0"
+logoFile="speakerapi.png"
+
+[[mods]]
+modId="speakerapi"
+version="1.0.0"
+displayName="Speaker API"
+description="TEXT\u2192HUMAN VOICE in Minecraft."
+authors="li2012China"
+modUrl="https://github.com/your-org/speaker-api"
+credits="Powered by sherpa-onnx (Apache-2.0) and Kokoro voice models (Apache-2.0)."
+
+# Client-only behaviour is enforced in code (bootstrap gated to Dist.CLIENT).
+# This mod intentionally does not ship a server-side implementation.
+
+# 依赖声明：Forge 1.20.1 的 FML 只认 mandatory(bool)（type= 是 NeoForge 才有的写法）。
+[[dependencies.speakerapi]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.speakerapi]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="CLIENT"

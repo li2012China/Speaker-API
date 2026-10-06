@@ -1,0 +1,62 @@
+# Speaker API - default configuration
+# This file is also written to config/speakerapi/speakerapi-common.toml at runtime.
+
+[general]
+# Master switch. When false, the engine is never loaded and nothing is spoken.
+enabled = true
+# 接管系统「讲述人」(Windows Narrator / SAPI 语音): 游戏本体与其他模组调用系统 TTS 时,
+# 强制改用本模组的离线 Kokoro 语音。引擎未就绪或本模组被禁用时透明回退到原系统语音。
+# 默认开启。可在游戏内用 /speakerapi systemtts <on|off> 实时切换。
+replace_system_tts = true
+# Maps to a Kokoro zh / zh-en voice id. Override per-call via SpeakerAPI.say(...).
+default_voice = "zh_female_natural"
+# 0.5 - 2.0
+speed = 1.0
+# 0.0 - 1.0
+volume = 1.0
+# Max characters per submitted segment before forced truncation.
+max_text_length = 200
+# Read incoming chat messages aloud.
+read_chat = false
+# Read system toasts (e.g. resource pack loaded) aloud.
+read_system_toast = true
+# Read achievement / advancement unlocks aloud.
+read_achievements = false
+# Regex blacklist: matched text is never spoken. Default blocks commands,
+# coordinate shares, and token leaks.
+filter_regex = ["^/", "坐标\\d+", "token=.+"]
+
+[performance]
+# CPU inference threads. 2 on laptops/low-end, 4 on desktops.
+num_threads = 4
+# Warm up the engine on client start (synthesise a silent/punctuation probe).
+prewarm = true
+# LRU cache size (number of synthesised WAV entries kept on disk).
+cache_size = 200
+# Output device target sample rate. 16/24/44.1k sources are resampled up/down.
+resample_to_hz = 44100
+
+[models]
+# Active model id. Default ships Kokoro multi-lang.
+default = "kokoro-multilang"
+# Auto-download the default model if missing (from trusted k2-fsa release URL).
+allow_download_missing = true
+# Extra model directories to scan (relative to game dir or absolute).
+extra_model_dirs = ["config/speakerapi/models"]
+# Require an explicit license-confirm toggle before any non-default model loads.
+require_model_license_confirm = true
+# 模型下载镜像策略 (解决 GitHub Releases 直链在国内过慢的问题)。
+#   "auto"  —— 优先走加速镜像, 失败自动回退官方直链 (默认, 推荐)。
+#             实测: 官方直链约 0.1 MB/s (333MB 需 ~55 分钟), ghfast.top 约 2.5 MB/s (~2 分钟)。
+#   "none"  —— 只用官方 GitHub Releases 直链 (最稳, 但国内可能很慢)。
+#   自定义  —— 形如 "https://ghfast.top/", 作为前缀拼到原地址前;
+#              或用 "{url}" 占位符表示原地址, 例如 "https://gh-proxy.com/{url}"。
+mirror = "auto"
+
+[audio]
+# TTS 输出绑定的 MC 声音分类: master / music / records / weather / block /
+# hostile / neutral / player / ambient / voice (大小写均可, record=records)。
+# 改完重启, 或游戏内 /speakerapi category <名> 实时切换。
+category = "voice"
+# 是否把 MC 该分类的滑块音量也叠加到语音上 (false 则只用上方 general.volume)。
+apply_category_volume = true

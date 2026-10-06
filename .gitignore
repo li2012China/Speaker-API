@@ -1,0 +1,31 @@
+# ── Gradle / build output ──
+.gradle/
+build/
+*/build/
+buildSrc/build/
+**/build/
+
+# Gradle wrapper properties (keep gradlew + gradle-wrapper.jar)
+!gradle/wrapper/gradle-wrapper.jar
+
+# ── Logs ──
+*.log
+build.log
+
+# ── IDE ──
+*.iml
+.idea/
+.vscode/
+*.swp
+
+# ── OS ──
+Thumbs.db
+.DS_Store
+ehthumbs.db
+
+# ── WorkBuddy project memory (internal, not part of the mod) ──
+.workbuddy/
+
+# ── Local overrides ──
+local.properties
+out/

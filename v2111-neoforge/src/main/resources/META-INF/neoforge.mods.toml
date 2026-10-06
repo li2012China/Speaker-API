@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="Apache-2.0"
+logoFile="speakerapi.png"
+
+[[mods]]
+modId="speakerapi"
+version="1.0.0"
+displayName="Speaker API"
+description="TEXT\u2192HUMAN VOICE in Minecraft."
+authors="li2012China"
+modUrl="https://github.com/your-org/speaker-api"
+credits="Powered by sherpa-onnx (Apache-2.0) and Kokoro voice models (Apache-2.0)."
+
+# Client-only behaviour is enforced in code (bootstrap gated to Dist.CLIENT).
+# This mod intentionally does not ship a server-side implementation.
+
+# NeoForge 1.21.1 加载所需依赖声明 (缺此块可能被拒绝加载)。
+[[dependencies.speakerapi]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.0,)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.speakerapi]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.21.2)"
+ordering="NONE"
+side="CLIENT"
